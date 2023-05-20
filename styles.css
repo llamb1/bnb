@@ -1,0 +1,167 @@
+body, html, div, p {
+    background-color: #131313!important;
+    font-family: 'Questrial', sans-serif;
+    color: aliceblue!important;
+    overflow: hidden;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+h1 {
+    font-size:2rem;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+    
+h2 {
+    font-size:1.75rem;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+
+h3 {
+    font-size:1.5rem;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+
+h4 {
+    font-size:1.25rem;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+
+h5 {
+    font-size:1rem;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+    
+h6 {
+    font-size:1rem;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+
+#display-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90%;
+    width: 80%;
+    border: 3px solid black;
+    overflow-y: auto;
+    border-radius: 15px!important;
+    font-size: 1.5em;
+}
+
+#button-menu {
+    position: absolute;
+    bottom: 0;
+    height: 15vh; /* Adjust this based on your needs */
+    width: 100%;
+    border: 3px solid black;
+    border-bottom: 0;
+    border-radius: 15px!important;
+}
+
+#inventory {
+    position: absolute;
+    right: 0;
+    height: 90%;
+    width: 20%;
+    border: 3px solid black;
+    border-radius: 15px!important;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px!important;
+  font-size: 16px;
+}
+
+#gameTitle {
+    float: right!important;
+}
+
+#pageLbl {
+    padding: 20px;
+}
+
+.content {
+    max-width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.infoPage {
+    max-width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.credits {
+    overflow: auto!important;
+}
+
+.graphic {
+  position: relative;
+  width: 100%;
+  height: 12vh;
+  background-color: transparent!important;
+  font-size: 6vw;
+  font-family: 'Questrial', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+}
+
+.text {
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+  margin-right: 0px; 
+  margin-left: 0px;
+}
+
+.graphic .text .btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
+#overlay {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: url('./content/BnBBackgroundoverlay.jpeg') center center no-repeat;  
+    background-size: cover;
+    opacity: 0.03;  
+    z-index: 1000;  
+}
