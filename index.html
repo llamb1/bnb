@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Black and Blu</title>
+  <link rel="stylesheet" href="./styles.css">  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- Google font preload-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Questrial&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="overlay"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="display-area" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 pull-left pull-top">
+        <h2>Items:</h2>
+        <ul id="itemsList"></ul>
+        <h2>Exits:</h2>
+        <ul id="exitsList"></ul>
+      </div>
+      <div id="inventory" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-right">
+        <h3>Inventory</h3>
+        <ul id="inventoryList"></ul>
+        <h3>People present:</h3>
+        <ul id="peopleList"></ul>
+      </div>      
+    <div id="button-menu" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-down">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" id="talkBtn">Talk</button>
+          <button type="button" class="btn btn-default" id="touchBtn">Touch</button>
+          <button type="button" class="btn btn-default" id="useBtn">Use</button>
+          <button type="button" class="btn btn-default" id="tasteBtn">Taste</button>
+          <button type="button" class="btn btn-default" id="listenBtn">Listen</button>
+          <button type="button" class="btn btn-default" id="feelBtn">Feel</button>
+          <button type="button" class="btn btn-default" id="obsBtn">Observe</button>
+          <button type="button" class="btn btn-default" id="takeBtn">Take</button>
+          <div class="graphic">
+            <h1 class="text" style="order: 1">Black and Blu</h1>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <script src="./scripts.js"></script>
+</body>
+</html>
+
