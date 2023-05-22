@@ -118,8 +118,8 @@ async function updateDisplayArea() {
   displayArea.appendChild(paragraph);
 
   // Populate exits and items for the current room
-  populateExits();
-  populateItems(); // Add this line to populate the items
+  populateExits(room);
+  populateItems(room); // Add this line to populate the items
 
   // Update the display area with exits and items
   displayArea.appendChild(document.createElement('hr'));
