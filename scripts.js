@@ -99,7 +99,7 @@ async function updateDisplayArea() {
   let room;
   try {
     room = await fetchRoomByID(currentRoomID);
-  } catch(error) {
+  } catch (error) {
     console.error('Error fetching room:', error);
     return;
   }
@@ -117,14 +117,10 @@ async function updateDisplayArea() {
   paragraph.innerHTML = message;
   displayArea.appendChild(paragraph);
 
-  // Only populate exits and items during initialization
-  if (!isInitialized) {
-    populateExits();
-    populateItems();
-    isInitialized = true;
-  }
+  // Populate exits and items for the current room
+  await populateExits();
+  await populateItems();
 }
-
 async function enterRoom(room) {
   game.currentRoom = room;
 
