@@ -62,6 +62,8 @@ function populatePeople() {
     .then(people => {
       const presentPeople = people.filter(person => person.present === true);
 
+      peopleList.innerHTML = ''; // Clear the people list first
+
       if (presentPeople.length === 0) {
         const listItem = document.createElement('li');
         listItem.textContent = 'Nobody';
@@ -78,6 +80,7 @@ function populatePeople() {
       console.error('Error fetching people:', error);
     });
 }
+
 
 // Room navigation
 
