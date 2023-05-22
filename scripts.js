@@ -118,9 +118,20 @@ async function updateDisplayArea() {
   displayArea.appendChild(paragraph);
 
   // Populate exits and items for the current room
-  await populateExits();
-  await populateItems();
+  populateExits();
+  populateItems(); // Add this line to populate the items
+
+  // Update the display area with exits and items
+  displayArea.appendChild(document.createElement('hr'));
+  displayArea.appendChild(document.createTextNode('Exits:'));
+  displayArea.appendChild(document.createElement('br'));
+  displayArea.appendChild(document.createElement('ul')).id = 'exitsList';
+  displayArea.appendChild(document.createElement('hr'));
+  displayArea.appendChild(document.createTextNode('Items:'));
+  displayArea.appendChild(document.createElement('br'));
+  displayArea.appendChild(document.createElement('ul')).id = 'itemsList';
 }
+
 async function enterRoom(room) {
   game.currentRoom = room;
 
