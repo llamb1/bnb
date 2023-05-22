@@ -204,9 +204,10 @@ populateInventory();
 populatePeople();
 updateDisplayArea();
 
-document.addEventListener("DOMContentLoaded", function() {
-  populateExits();
-  populateItems();
+document.addEventListener("DOMContentLoaded", async function() {
+  await populateExits();
+  await populateItems();
+  updateDisplayArea();
 
   document.getElementById('move-north').addEventListener('click', () => move('North'));
   document.getElementById('move-south').addEventListener('click', () => move('South'));
@@ -215,3 +216,4 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById('move-up').addEventListener('click', () => move('Up'));
   document.getElementById('move-down').addEventListener('click', () => move('Down'));
 });
+
