@@ -6,7 +6,10 @@
 function fetchItems() {
   return fetch('./json/items.json')
     .then(response => response.json())
-    .then(data => data)
+    .then(data => {
+      populateItems(); // Call populateItems() after fetching the items
+      return data;
+    })
     .catch(error => console.error(error));
 }
 
@@ -101,7 +104,7 @@ async function updateDisplayArea() {
   let message = room.longDesc;
   if (room.new) {
     message = room.entryMsg;
-    room.new = false; // Mark room as visited
+    room.new = false; // mark room as visited
   }
 
   displayArea.innerHTML = ''; // Clear the display area
@@ -111,9 +114,12 @@ async function updateDisplayArea() {
   paragraph.innerHTML = message;
   displayArea.appendChild(paragraph);
 
-  // Populate exits and items for the current room
-  await populateExits();
-  await populateItems();
+  // Only populate exits and items during initialization
+  if (!isInitialized) {
+    populateExits();
+    populateItems();
+    isInitialized = true;
+  }
 }
 
 async function enterRoom(room) {
