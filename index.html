@@ -26,12 +26,15 @@
         <ul id="exitsList"></ul>
       </div>
       <div id="inventory" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-right">
+        <div id="gameTitle">
+          <h1 class="text">Black and Blu</h1>
+        </div>
         <h3>Inventory</h3>
         <ul id="inventoryList"></ul>
         <h3>People present:</h3>
         <ul id="peopleList"></ul>
-      </div>      
-    <div id="button-menu" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-down">
+        </div>
+        <div id="button-menu" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-down">
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-default" id="talkBtn">Talk</button>
           <button type="button" class="btn btn-default" id="touchBtn">Touch</button>
@@ -41,15 +44,21 @@
           <button type="button" class="btn btn-default" id="feelBtn">Feel</button>
           <button type="button" class="btn btn-default" id="obsBtn">Observe</button>
           <button type="button" class="btn btn-default" id="takeBtn">Take</button>
-          <div class="graphic">
-            <h1 class="text" style="order: 1">Black and Blu</h1>
+        </div>
+        <div class="movement-buttons">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <button class="btn btn-default" id="move-north">North</button>
+              <button class="btn btn-default" id="move-south">South</button>
+              <button class="btn btn-default" id="move-east">East</button>
+              <button class="btn btn-default" id="move-west">West</button>
+              <button class="btn btn-default" id="move-up">Up</button>
+              <button class="btn btn-default" id="move-down">Down</button>
+            </div>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
-  </div>
-
   <script src="./scripts.js"></script>
 </body>
 </html>
-
