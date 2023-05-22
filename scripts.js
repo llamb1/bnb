@@ -16,20 +16,22 @@ function fetchItems() {
 function fetchRooms() {
   return fetch('./json/rooms.json')
     .then(response => response.json())
-    .then(data => data)
-    .catch(error => console.error(error))
+    .then(data => {
+      populateExits(); // Call populateExits() after fetching the rooms
+      return data;
+    })
+    .catch(error => console.error(error));
 }
 
 function fetchPeople() {
   return fetch('./json/people.json')
     .then(response => response.json())
-    .then(data => data)
-    .catch(error => console.error(error))
+    .then(data => {
+      populatePeople(); // Call populatePeople() after fetching the people
+      return data;
+    })
+    .catch(error => console.error(error));
 }
-
-// Example usage: fetchItems().then(data => console.log(data)).catch(error => console.error(error));
-
-// Inventory management
 
 function populateInventory() {
   const inventoryList = document.getElementById('inventoryList');
@@ -81,7 +83,6 @@ function populatePeople() {
     });
 }
 
-
 // Room navigation
 
 let currentRoomID = 1;  // Initialize the room ID to 1
@@ -132,20 +133,10 @@ async function updateDisplayArea() {
   displayArea.appendChild(document.createElement('ul')).id = 'itemsList';
 }
 
-async function enterRoom(room) {
-  game.currentRoom = room;
-
-  // Set the entry message as the room description
-  game.currentRoom.description = room.entryMsg;
-
-  // Update the display area
-  await updateDisplayArea();
-}
-
 async function populateExits() {
   const exitsList = document.getElementById('exitsList');
   exitsList.innerHTML = ''; // Clear the exits list first
-  const directions = ['North', 'South', 'East', 'West', 'Up', 'Down'];
+  const directions = ['Up', 'Down', 'North', 'South', 'East', 'West'];
 
   let room;
   try {
@@ -155,7 +146,7 @@ async function populateExits() {
     return;
   }
 
-  const exits = directions.filter(direction => room.exits[direction] && room.exits[direction] !== 9999);
+  const exits = directions.filter(direction => room.exits[direction] !== 9999);
 
   if (exits.length === 0) {
     const listItem = document.createElement('li');
