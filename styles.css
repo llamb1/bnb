@@ -1,10 +1,18 @@
-body, html, div, p {
-    background-color: #131313!important;
-    font-family: 'Questrial', sans-serif;
-    color: aliceblue!important;
-    overflow: hidden;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+body, html {
+  background-color: #131313!important;
+  font-family: 'Questrial', sans-serif;
+  color: aliceblue!important;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+div, p {
+  background-color: #131313!important;
+  font-family: 'Questrial', sans-serif;
+  color: aliceblue!important;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 h1 {
@@ -56,16 +64,18 @@ h6 {
     }
 
 #display-area {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 90%;
-    width: 80%;
-    border: 3px solid black;
-    overflow-y: auto;
-    border-radius: 15px!important;
-    font-size: 1.5em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 90%;
+  width: 80%;
+  border: 3px solid black;
+  overflow-y: auto;
+  border-radius: 15px!important;
+  font-size: 1.5em;
+  padding-right: 20px; /* Add a padding for the scrollbars */
 }
+
 
 #button-menu {
     position: absolute;
@@ -163,5 +173,51 @@ button {
     background: url('./content/BnBBackgroundoverlay.jpeg') center center no-repeat;  
     background-size: cover;
     opacity: 0.03;  
-    z-index: 1000;  
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.movement-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.movement-buttons .btn {
+  margin: 5px;
+}
+
+//Positioning the title up in the top of the inventory pane, and it doesnt look too bad
+#gameTitle {
+  position: absolute;
+  right: 10%;
+  top: -20%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  #gameTitle {
+    font-size: 1.5rem;
+    top: -15%;
+  }
+}
+
+@media (max-width: 480px) {
+  #gameTitle {
+    font-size: 1.2rem;
+    top: -10%;
+  }
+}
+
+.container-fluid {
+  height: 100%;
+}
+
+.row {
+  height: 85vh;
+}
+
+#display-area, #inventory {
+  height: 90vh;
+  overflow-y: scroll!important;
 }
