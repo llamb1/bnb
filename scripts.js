@@ -145,7 +145,7 @@ async function enterRoom(room) {
 async function populateExits() {
   const exitsList = document.getElementById('exitsList');
   exitsList.innerHTML = ''; // Clear the exits list first
-  const directions = ['Up', 'Down', 'North', 'South', 'East', 'West'];
+  const directions = ['North', 'South', 'East', 'West', 'Up', 'Down'];
 
   let room;
   try {
@@ -183,7 +183,7 @@ async function populateItems() {
     return;
   }
 
-  const roomItems = items.filter(item => item.origRoom === currentRoomID && item.owned === true);
+  const roomItems = items.filter(item => item.origRoom === currentRoomID && item.owned === false);
 
   if (roomItems.length === 0) {
     const listItem = document.createElement('li');
@@ -197,7 +197,6 @@ async function populateItems() {
     });
   }
 }
-
 
 async function move(direction) {
   const room = await fetchRoomByID(currentRoomID);
