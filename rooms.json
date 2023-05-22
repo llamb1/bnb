@@ -1,0 +1,116 @@
+[
+    {
+        "roomID": 1,
+        "roomName": "mechStorageRoom",
+        "shortDesc": "Mechanic Storage Room",
+        "longDesc": "The room is dark, with a musty and stale air. The faint smell of mildew lingers in the space. Piles of dusty cardboard boxes and rusted metal containers are stacked in a haphazard manner around the room, while empty shelves once used to hold tools and spare parts line the walls. A few scattered nuts and bolts rest on the dusty ground. Thick layers of grime and dust cover the floor, making it difficult to move around without stirring up debris. The silence is broken only by the occasional sound of scurrying rodents.",
+        "entryMsg": "As you wake, you find your 9 year old self in the storage room of the condemned mechanic shop, you are immediately enveloped in darkness. The air is musty and stale, with a hint of mildew lingering in the air. Your eyes struggle to adjust to the dimly lit space, but you can make out piles of dusty cardboard boxes and rusted metal containers stacked haphazardly around the room. The shelves that once held tools and spare parts are now empty, complimenting the few scattered nuts and bolts lying on the ground. The floor is covered in a thick layer of dust and grime, making it difficult to move around without stirring up a cloud of debris. The silence is deafening, broken only by the occasional scurry of a rodent.<br><br>As you take stock of your surroundings, a deep sense of unease settles within you. Your body feels sore, aching with an unfamiliar heaviness, and your clothes bear the ominous evidence of bullet holes. Yet, against all odds, you are alive and unharmed, though shaken to the core.<br><br>Fear grips your heart as you look around, desperately seeking familiar faces. Questions swirl in your mind, wondering where Uncle Mike, Pastor Rodney, and Floyd could be. Their absence only adds to your sense of vulnerability and confusion.<br><br>The weight of the unknown presses upon you. Memories elude your grasp, leaving behind a disorienting void. The fear of what transpired lingers, casting shadows on your innocence. In this moment of uncertainty, you cling to the hope of finding answers, piecing together the fragments of your shattered recollection.",
+        "exits": {
+            "North": 9999,
+            "South": 9999,
+            "East": 2,
+            "West": 9999,
+            "Up": 9999,
+            "Down": 9999
+        },
+        "hiddenExits": "",
+        "storageContainers": "",
+        "interactables": "",
+        "new": true
+    },
+    {
+        "roomID": 2,
+        "roomName": "",
+        "shortDesc": "",
+        "longDesc": "As you take a moment to absorb your surroundings in the abandoned office of the condemned mechanic shop, your eyes adjust to the dim lighting. The air carries a musty scent, hinting at the years of neglect that have befallen this place. Your gaze shifts to the stacks of dusty files, their edges curling with age, and the rusted metal cabinets that stand as remnants of a time long past.\n\nYou step cautiously over the overturned chairs, their worn upholstery and toppled frames bearing the weight of forgotten stories. Sunlight struggles to penetrate the room through the boarded-up window, casting faint rays that dance upon the thick layer of grime coating every surface, as if time has carefully etched its mark upon the room.\n\nThe stillness of the air is occasionally interrupted by the faint sound of water droplets hitting the floor, a melancholic symphony of decay. Your eyes are drawn to the broken computer monitor, its dark screen a silent testament to technological obsolescence, and the telephone with frayed cords that hang, frozen in time.\n\nThe battered desk becomes your focal point, beckoning you closer. Old invoices, faded and yellowed with age, mingle with photographs that speak of distant memories. Each item on the desk carries a fragment of a forgotten narrative, an echo of lives that once occupied this space.\n\nYou stand amidst the quiet solitude of this abandoned office, capturing fleeting glimpses of its forgotten past. Every object and every corner holds secrets, inviting you to delve deeper into the untold stories that linger within these weathered walls.",
+        "entryMsg": "As you step into the abandoned office of the condemned mechanic shop, you are greeted by a musty scent of old paper and decaying wood. The room is cluttered with stacks of dusty files, rusted metal cabinets, and overturned chairs. A small single window, now boarded up, lets in a sliver of light that only serves to highlight the thick layer of grime coating every surface. The air is heavy with silence, broken only by the faint sound of dripping water from a leaky pipe. A broken computer monitor and a telephone with frayed cords sit atop a battered desk, surrounded by a mess of old invoices and faded photographs.",
+        "exits": {
+            "North": 9999,
+            "South": 9999,
+            "East": 3,
+            "West": 1,
+            "Up": 9999,
+            "Down": 9999
+        },
+        "hiddenExits": "",
+        "storageContainers": "",
+        "interactables": "",
+        "new": true
+    },
+    {
+        "roomID": 3,
+        "roomName": "",
+        "shortDesc": "",
+        "longDesc": "",
+        "entryMsg": "",
+        "exits": {
+            "North": 9999,
+            "South": 9999,
+            "East": 9999,
+            "West": 9999,
+            "Up": 9999,
+            "Down": 9999
+        },
+        "hiddenExits": "",
+        "storageContainers": "",
+        "interactables": "",
+        "new": true
+    },
+    {
+        "roomID": 4,
+        "roomName": "",
+        "shortDesc": "",
+        "longDesc": "",
+        "entryMsg": "",
+        "exits": {
+            "North": 9999,
+            "South": 9999,
+            "East": 9999,
+            "West": 9999,
+            "Up": 9999,
+            "Down": 9999
+        },
+        "hiddenExits": "",
+        "storageContainers": "",
+        "interactables": "",
+        "new": true
+    },
+    {
+        "roomID": 98,
+        "roomName": "",
+        "shortDesc": "",
+        "longDesc": "",
+        "entryMsg": "",
+        "exits": {
+            "North": 9999,
+            "South": 9999,
+            "East": 9999,
+            "West": 9999,
+            "Up": 9999,
+            "Down": 9999
+        },
+        "hiddenExits": "",
+        "storageContainers": "",
+        "interactables": "",
+        "new": true
+    },
+    {
+        "roomID": 99,
+        "roomName": "",
+        "shortDesc": "",
+        "longDesc": "",
+        "entryMsg": "",
+        "exits": {
+            "North": 9999,
+            "South": 9999,
+            "East": 9999,
+            "West": 9999,
+            "Up": 9999,
+            "Down": 9999
+        },
+        "hiddenExits": "",
+        "storageContainers": "",
+        "interactables": "",
+        "new": true
+    }
+]
