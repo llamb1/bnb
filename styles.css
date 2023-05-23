@@ -221,3 +221,7 @@ button {
   height: 90vh;
   overflow-y: scroll!important;
 }
+
+.movement-buttons {
+  overflow: hidden;
+}
