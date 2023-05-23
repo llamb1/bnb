@@ -174,7 +174,7 @@ async function populateItems() {
     return;
   }
 
-  const roomItems = items.filter(item => item.origRoom === currentRoomID && item.owned === false);
+  const roomItems = items.filter(item => item.origRoom === currentRoomID && item.owned === "false");
 
   if (roomItems.length === 0) {
     const listItem = document.createElement('li');
