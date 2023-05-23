@@ -167,7 +167,7 @@ async function populateItems() {
 
   let items;
   try {
-    const response = await fetch('./json/items.json');
+    const response = await fetch('./items.json');
     items = await response.json();
   } catch(error) {
     console.error('Error fetching items:', error);
