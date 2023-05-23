@@ -4,7 +4,7 @@
 // Fetch JSON data
 
 function fetchItems() {
-  return fetch('./json/items.json')
+  return fetch('./items.json')
     .then(response => response.json())
     .then(data => {
       populateItems(); // Call populateItems() after fetching the items
@@ -14,7 +14,7 @@ function fetchItems() {
 }
 
 function fetchRooms() {
-  return fetch('./json/rooms.json')
+  return fetch('./rooms.json')
     .then(response => response.json())
     .then(data => {
       populateExits(); // Call populateExits() after fetching the rooms
@@ -24,7 +24,7 @@ function fetchRooms() {
 }
 
 function fetchPeople() {
-  return fetch('./json/people.json')
+  return fetch('./people.json')
     .then(response => response.json())
     .then(data => {
       populatePeople(); // Call populatePeople() after fetching the people
