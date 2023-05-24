@@ -88,7 +88,7 @@ function populatePeople() {
 let currentRoomID = 1;  // Initialize the room ID to 1
 
 function fetchRoomByID(roomID) {
-  return fetch('./json/rooms.json')
+  return fetch('./rooms.json')
     .then(response => response.json())
     .then(data => data.find(room => room.roomID === roomID))
     .catch(error => console.error(error));
@@ -132,6 +132,8 @@ async function updateDisplayArea() {
   displayArea.appendChild(document.createElement('br'));
   displayArea.appendChild(document.createElement('ul')).id = 'itemsList';
 }
+
+
 
 async function populateExits() {
   const exitsList = document.getElementById('exitsList');
