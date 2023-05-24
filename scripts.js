@@ -102,30 +102,28 @@ async function fetchRoomByID(roomID) {
 async function updateDisplayArea() {
   const displayArea = document.getElementById('display-area');
 
-  let room;
   try {
-    room = await fetchRoomByID(currentRoomID);
-  } catch(error) {
+    const room = await fetchRoomByID(currentRoomID);
+    let message = room.longDesc;
+
+    if (room.new) {
+      message = room.entryMsg;
+      room.new = false; // Mark room as visited
+    }
+
+    displayArea.innerHTML = ''; // Clear the display area
+
+    // Insert room description into the display area
+    const paragraph = document.createElement('p');
+    paragraph.innerHTML = message;
+    displayArea.appendChild(paragraph);
+
+    // Populate exits and items for the current room
+    populateExits();
+    populateItems();
+  } catch (error) {
     console.error('Error fetching room:', error);
-    return;
   }
-
-  let message = room.longDesc;
-  if (room.new) {
-    message = room.entryMsg;
-    room.new = false; // mark room as visited
-  }
-
-  displayArea.innerHTML = ''; // Clear the display area
-
-  // Insert room description into the display area
-  const paragraph = document.createElement('p');
-  paragraph.innerHTML = message;
-  displayArea.appendChild(paragraph);
-
-  // Populate items and exits for the current room
-  await populateItems();
-  await populateExits();
 
   // Update the display area with exits and items
   displayArea.appendChild(document.createElement('hr'));
@@ -145,13 +143,26 @@ async function populateExits() {
   exitsList.innerHTML = ''; // Clear the exits list first
   const directions = ['Up', 'Down', 'North', 'South', 'East', 'West'];
 
-  let room;
   try {
-    room = await fetchRoomByID(currentRoomID);
-  } catch(error) {
+    const room = await fetchRoomByID(currentRoomID);
+    const exits = directions.filter(direction => room.exits[direction] !== 9999);
+
+    if (exits.length === 0) {
+      const listItem = document.createElement('li');
+      listItem.textContent = 'No exits';
+      exitsList.appendChild(listItem);
+    } else {
+      exits.forEach(exit => {
+        const listItem = document.createElement('li');
+        listItem.textContent = exit;
+        exitsList.appendChild(listItem);
+      });
+    }
+  } catch (error) {
     console.error('Error fetching room:', error);
-    return;
   }
+}
+
 
   const exits = directions.filter(direction => room.exits[direction] !== 9999);
 
