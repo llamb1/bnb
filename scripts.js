@@ -1,6 +1,10 @@
 //Scripts.js
 //Black and Blu
 
+// Room navigation
+
+let currentRoomID = 1;  // Initialize the room ID to 1
+
 // Fetch JSON data
 
 function fetchItems() {
@@ -83,13 +87,9 @@ function populatePeople() {
     });
 }
 
-// Room navigation
-
-let currentRoomID = 1;  // Initialize the room ID to 1
-
 async function fetchRoomByID(roomID) {
   try {
-    const response = await fetch('./json/rooms.json');
+    const response = await fetch('./rooms.json');
     const data = await response.json();
     return data.find(room => room.roomID.toString() === roomID.toString());
   } catch (error) {
@@ -97,7 +97,6 @@ async function fetchRoomByID(roomID) {
     return null;
   }
 }
-
 
 async function updateDisplayArea() {
   const displayArea = document.getElementById('display-area');
@@ -136,8 +135,6 @@ async function updateDisplayArea() {
   displayArea.appendChild(document.createElement('ul')).id = 'itemsList';
 }
 
-
-
 async function populateExits() {
   const exitsList = document.getElementById('exitsList');
   exitsList.innerHTML = ''; // Clear the exits list first
@@ -163,22 +160,6 @@ async function populateExits() {
   }
 }
 
-
-  const exits = directions.filter(direction => room.exits[direction] !== 9999);
-
-  if (exits.length === 0) {
-    const listItem = document.createElement('li');
-    listItem.textContent = 'No exits';
-    exitsList.appendChild(listItem);
-  } else {
-    exits.forEach(exit => {
-      const listItem = document.createElement('li');
-      listItem.textContent = exit;
-      exitsList.appendChild(listItem);
-    });
-  }
-}
-
 async function populateItems() {
   const itemsList = document.getElementById('itemsList');
   itemsList.innerHTML = ''; // Clear the items list first
@@ -187,12 +168,12 @@ async function populateItems() {
   try {
     const response = await fetch('./items.json');
     items = await response.json();
-  } catch(error) {
+  } catch (error) {
     console.error('Error fetching items:', error);
     return;
   }
 
-  const roomItems = items.filter(item => item.origRoom === currentRoomID && item.owned === "false");
+  const roomItems = items.filter(item => item.origRoom === currentRoomID && item.owned === false);
 
   if (roomItems.length === 0) {
     const listItem = document.createElement('li');
@@ -228,11 +209,10 @@ populateInventory();
 populatePeople();
 updateDisplayArea();
 
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener('DOMContentLoaded', async function () {
   updateDisplayArea();
   await populateExits();
   await populateItems();
-
 
   document.getElementById('move-north').addEventListener('click', () => move('North'));
   document.getElementById('move-south').addEventListener('click', () => move('South'));
@@ -241,4 +221,3 @@ document.addEventListener("DOMContentLoaded", async function() {
   document.getElementById('move-up').addEventListener('click', () => move('Up'));
   document.getElementById('move-down').addEventListener('click', () => move('Down'));
 });
-
