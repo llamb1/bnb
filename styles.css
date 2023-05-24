@@ -223,5 +223,10 @@ button {
 }
 
 .movement-buttons {
-  overflow: hidden;
+  overflow: hidden!important;
+  max-height: 10vh;
+}
+
+#ohFFS {
+  overflow: hidden!important;
 }
