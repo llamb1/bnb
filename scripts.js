@@ -87,12 +87,17 @@ function populatePeople() {
 
 let currentRoomID = 1;  // Initialize the room ID to 1
 
-function fetchRoomByID(roomID) {
-  return fetch('./rooms.json')
-    .then(response => response.json())
-    .then(data => data.find(room => room.roomID === roomID))
-    .catch(error => console.error(error));
+async function fetchRoomByID(roomID) {
+  try {
+    const response = await fetch('./json/rooms.json');
+    const data = await response.json();
+    return data.find(room => room.roomID.toString() === roomID.toString());
+  } catch (error) {
+    console.error('Error fetching room:', error);
+    return null;
+  }
 }
+
 
 async function updateDisplayArea() {
   const displayArea = document.getElementById('display-area');
@@ -193,7 +198,7 @@ async function populateItems() {
 
 async function move(direction) {
   const room = await fetchRoomByID(currentRoomID);
-  const nextRoomID = room.exits[direction];
+  const nextRoomID = room.exits[direction.toLowerCase()];
 
   if (nextRoomID === 9999) {
     console.log('There is no exit in that direction.');
