@@ -118,9 +118,9 @@ async function updateDisplayArea() {
   paragraph.innerHTML = message;
   displayArea.appendChild(paragraph);
 
-  // Update the exits and items lists
-  populateExits();
-  populateItems();
+  // Populate items and exits for the current room
+  await populateItems();
+  await populateExits();
 
   // Update the display area with exits and items
   displayArea.appendChild(document.createElement('hr'));
@@ -213,9 +213,10 @@ populatePeople();
 updateDisplayArea();
 
 document.addEventListener("DOMContentLoaded", async function() {
+  updateDisplayArea();
   await populateExits();
   await populateItems();
-  updateDisplayArea();
+
 
   document.getElementById('move-north').addEventListener('click', () => move('North'));
   document.getElementById('move-south').addEventListener('click', () => move('South'));
