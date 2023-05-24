@@ -100,7 +100,7 @@ async function updateDisplayArea() {
   let room;
   try {
     room = await fetchRoomByID(currentRoomID);
-  } catch (error) {
+  } catch(error) {
     console.error('Error fetching room:', error);
     return;
   }
@@ -118,9 +118,9 @@ async function updateDisplayArea() {
   paragraph.innerHTML = message;
   displayArea.appendChild(paragraph);
 
-  // Populate exits and items for the current room
-  populateExits(room);
-  populateItems(room); // Add this line to populate the items
+  // Update the exits and items lists
+  populateExits();
+  populateItems();
 
   // Update the display area with exits and items
   displayArea.appendChild(document.createElement('hr'));
