@@ -120,77 +120,47 @@ async function updateDisplayArea() {
     // Populate exits and items for the current room
     populateExits();
     populateItems();
+
+    // Update the display area with exits and items
+    displayArea.appendChild(document.createElement('hr'));
+    displayArea.appendChild(document.createTextNode('Exits:'));
+    displayArea.appendChild(document.createElement('br'));
+    displayArea.appendChild(document.createElement('ul')).id = 'exitsList';
+    displayArea.appendChild(document.createElement('hr'));
+    displayArea.appendChild(document.createTextNode('Items:'));
+    displayArea.appendChild(document.createElement('br'));
+    displayArea.appendChild(document.createElement('ul')).id = 'itemsList';
   } catch (error) {
     console.error('Error fetching room:', error);
   }
-
-  // Update the display area with exits and items
-  displayArea.appendChild(document.createElement('hr'));
-  displayArea.appendChild(document.createTextNode('Exits:'));
-  displayArea.appendChild(document.createElement('br'));
-  displayArea.appendChild(document.createElement('ul')).id = 'exitsList';
-  displayArea.appendChild(document.createElement('hr'));
-  displayArea.appendChild(document.createTextNode('Items:'));
-  displayArea.appendChild(document.createElement('br'));
-  displayArea.appendChild(document.createElement('ul')).id = 'itemsList';
 }
 
-async function populateExits() {
-  const exitsList = document.getElementById('exitsList');
-  exitsList.innerHTML = ''; // Clear the exits list first
-  const directions = ['Up', 'Down', 'North', 'South', 'East', 'West'];
 
-  try {
-    const room = await fetchRoomByID(currentRoomID);
-    const exits = directions.filter(direction => room.exits[direction] !== 9999);
+function populateExits(room) {
+  const exits = room.exits;
 
-    if (exits.length === 0) {
-      const listItem = document.createElement('li');
-      listItem.textContent = 'No exits';
-      exitsList.appendChild(listItem);
-    } else {
-      exits.forEach(exit => {
-        const listItem = document.createElement('li');
-        listItem.textContent = exit;
-        exitsList.appendChild(listItem);
-      });
+  for (const direction in exits) {
+    const exitID = exits[direction];
+    if (exitID !== 9999) {
+      const exitName = rooms.find(room => room.roomID === exitID).roomName;
+      exitsList.innerHTML += `<li><a href="#" onclick="goToRoom(${exitID});">${direction}: ${exitName}</a></li>`;
     }
-  } catch (error) {
-    console.error('Error fetching room:', error);
   }
 }
 
-async function populateItems() {
-  const itemsList = document.getElementById('itemsList');
-  itemsList.innerHTML = ''; // Clear the items list first
 
-  let items;
-  try {
-    const response = await fetch('./items.json');
-    items = await response.json();
-  } catch (error) {
-    console.error('Error fetching items:', error);
-    return;
-  }
+function populateItems(room) {
+  const roomItems = room.items;
 
-  const roomItems = items.filter(item => item.origRoom === currentRoomID && item.owned === false);
-
-  if (roomItems.length === 0) {
-    const listItem = document.createElement('li');
-    listItem.textContent = 'No items';
-    itemsList.appendChild(listItem);
-  } else {
-    roomItems.forEach(item => {
-      const listItem = document.createElement('li');
-      listItem.textContent = item.name;
-      itemsList.appendChild(listItem);
-    });
+  for (const itemName of roomItems) {
+    itemsList.innerHTML += `<li>${itemName}</li>`;
   }
 }
+
 
 async function move(direction) {
   const room = await fetchRoomByID(currentRoomID);
-  const nextRoomID = room.exits[direction.toLowerCase()];
+  const nextRoomID = room.exits[direction];
 
   if (nextRoomID === 9999) {
     console.log('There is no exit in that direction.');
